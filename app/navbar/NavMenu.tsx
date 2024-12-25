@@ -58,7 +58,7 @@ export default async function Nav() {
               <Link href={'/'}>
               <ListItem
               key = {1}
-              title={'Mogosanu Alexandru'}>Developer</ListItem>
+              title={'Mogoseanu Alexandru'}>Technical Writer</ListItem>
               </Link>
               <Link href={'/'}>
               <ListItem
@@ -83,7 +83,7 @@ export default async function Nav() {
               <Link href={'/'}>
               <ListItem
               key = {6}
-              title={'Trasca Robert'}>Technical Writer</ListItem>
+              title={'Trasca Robert'}>Developer</ListItem>
               </Link>
               <Link href={'/'}>
               <ListItem
