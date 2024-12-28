@@ -2,7 +2,7 @@ import React from 'react'
 
 function page({params} : {params: {id: string}}) {
   return (
-    <div>page</div>
+    <div className='mt-10'>post with the id of {params.id}</div>
   )
 }
 
