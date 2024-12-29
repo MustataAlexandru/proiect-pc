@@ -1,166 +1,38 @@
+"use client";
 import React from 'react';
-import { fetchAllPosts } from '../utils/actions';
-import PostCard from '../global/PostCard';
-import { TbNotesOff } from 'react-icons/tb';
 
+const Page = () => {
+  const handler = (title: String) => {
+    alert(`Triggered handler for ${title}`);
+  };
 
-export default async function page({searchParams } : {searchParams?: {search: string}}) {
-    const search = searchParams?.search || '';
-    const posts = await fetchAllPosts({search});
-    console.log({searchParams});
-    if(posts.length === 0) return <div className='posts-container'>
-      <div className="flex flex-col items-center">
-    <TbNotesOff size={32} />
-    <p>No properties found.</p>
-    <div className='astronaut' style={{marginTop: '-7rem'}}>
-   <div className="backg">
-  <div className="planet">
-    <div className="r1"></div>
-    <div className="r2"></div>
-    <div className="r3"></div>
-    <div className="r4"></div>
-    <div className="r5"></div>
-    <div className="r6"></div>
-    <div className="r7"></div>
-    <div className="r8"></div>
-    <div className="shad"></div>
-  </div>
-  <div className="stars">
-    <div className="s1"></div>
-    <div className="s2"></div>
-    <div className="s3"></div>
-    <div className="s4"></div>
-    <div className="s5"></div>
-    <div className="s6"></div>
-  </div>
-  <div className="an">
-    <div className="tank"></div>
-    <div className="astro">
-        
-        <div className="helmet">
-          <div className="glass">
-            <div className="shine"></div>
-          </div>
-        </div>
-        <div className="dress">
-          <div className="c">
-            <div className="btn1"></div>
-            <div className="btn2"></div>
-            <div className="btn3"></div>
-            <div className="btn4"></div>
-          </div>
-        </div>
-        <div className="handl">
-          <div className="handl1">
-            <div className="glovel">
-              <div className="thumbl"></div>
-              <div className="b2"></div>
+  const posts = [
+    { id: 1, title: "Cozy Apartment in the City", description: "A modern and stylish apartment in the heart of the city.", image: "https://via.placeholder.com/150" },
+    { id: 2, title: "Beachfront Villa", description: "Enjoy a serene beachfront stay with stunning ocean views.", image: "https://via.placeholder.com/150" },
+    { id: 3, title: "Mountain Cabin", description: "A peaceful retreat in the mountains, perfect for nature lovers.", image: "https://via.placeholder.com/150" },
+  ];
+
+  return (
+    <div className="mt-10 flex flex-col items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <div key={post.id} className="border rounded-lg shadow-md overflow-hidden">
+            <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
+            <div className="p-4">
+              <h2 className="text-lg font-semibold">{post.title}</h2>
+              <p className="text-gray-600 mb-4">{post.description}</p>
+              <button
+                onClick={() => handler(post.title)}
+                className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg shadow-md hover:from-purple-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
+              >
+                View Details
+              </button>
             </div>
           </div>
-        </div>
-        <div className="handr">
-          <div className="handr1">
-            <div className="glover">
-              <div className="thumbr"></div>
-              <div className="b1"></div>
-            </div>
-          </div>
-        </div>
-        <div className="legl">
-          <div className="bootl1">
-            <div className="bootl2"></div>
-          </div>
-        </div>
-        <div className="legr">
-          <div className="bootr1">
-            <div className="bootr2"></div>
-          </div>
-        </div>
-        <div className="pipe">
-          <div className="pipe2">
-            <div className="pipe3"></div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  </div>
+  );
+};
 
-</div>
-    </div>
-      
-      </div>
-  return <div className='astronaut'>
-   <div className="backg">
-  <div className="planet">
-    <div className="r1"></div>
-    <div className="r2"></div>
-    <div className="r3"></div>
-    <div className="r4"></div>
-    <div className="r5"></div>
-    <div className="r6"></div>
-    <div className="r7"></div>
-    <div className="r8"></div>
-    <div className="shad"></div>
-  </div>
-  <div className="stars">
-    <div className="s1"></div>
-    <div className="s2"></div>
-    <div className="s3"></div>
-    <div className="s4"></div>
-    <div className="s5"></div>
-    <div className="s6"></div>
-  </div>
-  <div className="an">
-    <div className="tank"></div>
-    <div className="astro">
-        
-        <div className="helmet">
-          <div className="glass">
-            <div className="shine"></div>
-          </div>
-        </div>
-        <div className="dress">
-          <div className="c">
-            <div className="btn1"></div>
-            <div className="btn2"></div>
-            <div className="btn3"></div>
-            <div className="btn4"></div>
-          </div>
-        </div>
-        <div className="handl">
-          <div className="handl1">
-            <div className="glovel">
-              <div className="thumbl"></div>
-              <div className="b2"></div>
-            </div>
-          </div>
-        </div>
-        <div className="handr">
-          <div className="handr1">
-            <div className="glover">
-              <div className="thumbr"></div>
-              <div className="b1"></div>
-            </div>
-          </div>
-        </div>
-        <div className="legl">
-          <div className="bootl1">
-            <div className="bootl2"></div>
-          </div>
-        </div>
-        <div className="legr">
-          <div className="bootr1">
-            <div className="bootr2"></div>
-          </div>
-        </div>
-        <div className="pipe">
-          <div className="pipe2">
-            <div className="pipe3"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-}
+export default Page;
