@@ -5,7 +5,7 @@
     "address": "123 City Street",
     "price": 1200,
     "tags": ["modern", "loft", "city"],
-    "pictures": [""],
+    "pictures": ["https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg"],
     "userId": 1
   },
   {
