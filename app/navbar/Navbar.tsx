@@ -9,7 +9,7 @@ import NavSearch from "./NavSearch";
 
 export default function Navbar() {
   return (
-    <div className="flex items-center justify-between py-5 px-4 border-b fixed top-0 w-[100%] z-10 bg-white dark:bg-[hsl(var(--background))]">
+    <div className="flex items-center justify-between py-4 px-4 border-b fixed top-0 w-[100%] z-10 bg-white dark:bg-[hsl(var(--background))]">
       <div className="flex items-center gap-2">
         <Logo />
         <NavMenu />
