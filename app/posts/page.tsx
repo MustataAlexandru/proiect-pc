@@ -1,19 +1,34 @@
 "use client";
-import React from 'react';
 
-const Page = () => {
-  const handler = (title: String) => {
+import React, { useEffect, useState } from "react";
+
+interface Post {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+}
+
+const Page: React.FC = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("/api/posts");
+      const data: Post[] = await response.json();
+      setPosts(data);
+    };
+
+    fetchPosts();
+  }, []);
+
+  const handler = (title: string) => {
     alert(`Triggered handler for ${title}`);
   };
 
-  const posts = [
-    { id: 1, title: "Cozy Apartment in the City", description: "A modern and stylish apartment in the heart of the city.", image: "https://via.placeholder.com/150" },
-    { id: 2, title: "Beachfront Villa", description: "Enjoy a serene beachfront stay with stunning ocean views.", image: "https://via.placeholder.com/150" },
-    { id: 3, title: "Mountain Cabin", description: "A peaceful retreat in the mountains, perfect for nature lovers.", image: "https://via.placeholder.com/150" },
-  ];
-
   return (
-    <div className="mt-10 flex flex-col items-center">
+    <div className="flex flex-col items-center">
+      <h1 className="text-2xl font-bold mb-6">Explore Our Listings</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
           <div key={post.id} className="border rounded-lg shadow-md overflow-hidden">
