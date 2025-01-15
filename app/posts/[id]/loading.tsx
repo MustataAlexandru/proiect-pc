@@ -1,3 +1,5 @@
+'use client'
+
 import LoadingContainer from '@/app/global/LoadingContainer'
 import React from 'react'
 
