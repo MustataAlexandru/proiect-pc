@@ -108,7 +108,7 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
           <div className="bg-white dark:bg-gray-800/50 rounded-lg p-6 sticky top-24">
             {/* Price */}
             <div className="flex items-baseline gap-1 mb-6">
-              <span className="text-3xl font-bold dark:text-white">${post.price}</span>
+              <span className="text-3xl font-bold dark:text-white">{post.price} lei</span>
               <span className="text-gray-500 dark:text-gray-400">/night</span>
             </div>
 
