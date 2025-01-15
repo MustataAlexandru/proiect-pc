@@ -26,4 +26,12 @@ export const fetchAllPosts = async (
     return posts;
 }
    
-
+export const fetchSinglePost = async ( postId : number) => {
+    const post = await db.post.findUnique({
+        where: {
+            id: postId
+        }
+    });
+    if(!post) redirect('/posts');
+    return post;
+}

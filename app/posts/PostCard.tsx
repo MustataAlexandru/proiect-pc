@@ -20,7 +20,7 @@ type PostCardProps = {
 function PostCard({ postInfo }: PostCardProps) {
   return (
     <article key={postInfo.id} className="group relative">
-      <Link href={`/property/${postInfo.title}`}>
+      <Link href={`/property/${postInfo.id}`}>
         <Card className="transform group-hover:shadow-xl transition-shadow duration-500">
         <h2 className="text-xl font-semibold text-center mt-8">{postInfo.title}</h2>
           <CardContent className="p-8">
