@@ -2,7 +2,8 @@
 import { currentUser, getAuth , auth } from "@clerk/nextjs/server";
 import { notFound, redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import db from './db'
+import db from './db';
+
 
 const renderError = (error: unknown): { message: string } => {
   
@@ -11,6 +12,11 @@ const renderError = (error: unknown): { message: string } => {
     };
   };
 
+export const getAuthUser = async () => {
+    const user = await currentUser();
+    if(!user) redirect('/');
+    return user;
+}
 
 export const fetchAllPosts = async (
     // {search = ""}: {search: string}

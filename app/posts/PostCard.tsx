@@ -67,7 +67,7 @@ function PostCard({ postInfo }: PostCardProps) {
                 {postInfo.price.toLocaleString()} lei
               </p>
               <Button 
-                className="w-full max-w-[200px] transition-colors" 
+                className="property-btn" 
                 disabled
               >
                 Book Now
