@@ -1,6 +1,6 @@
 "use server";
 import { currentUser, getAuth , auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import db from './db'
 
@@ -27,11 +27,12 @@ export const fetchAllPosts = async (
 }
    
 export const fetchSinglePost = async ( postId : number) => {
+    const id = Number(postId)
     const post = await db.post.findUnique({
         where: {
-            id: postId
+            id
         }
     });
-    if(!post) redirect('/posts');
+    if(!post) redirect('/')
     return post;
 }
