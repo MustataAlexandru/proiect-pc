@@ -114,7 +114,7 @@ export default function Footer() {
           </Link>
         </div>
         <p className="mt-8 text-base leading-6 text-center text-gray-400">
-          © 2024-2025 Proiect PC #Vissionary Lab 1.0 . All rights reserved.
+          © 2024-2025 Nestly 1.0 All rights reserved.
         </p>
       </div>
     </section>

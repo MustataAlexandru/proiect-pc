@@ -30,10 +30,10 @@ export default async function Nav() {
                   >
                     
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      Vissionary Lab
+                      Nestly
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Proiect PC 2024-2025
+                      @Vissionary Lab
                     </p>
                   </a>
                 </NavigationMenuLink>

@@ -3,6 +3,13 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 type PostCardProps = {
   postInfo: {
@@ -28,6 +35,7 @@ function PostCard({ postInfo }: PostCardProps) {
           
           <CardContent className="p-6">
             <div className="relative h-72 md:h-56 w-full mb-4 overflow-hidden rounded-lg">
+              
               <Image
                 src={postInfo.pictures[0]}
                 alt={postInfo.title}
