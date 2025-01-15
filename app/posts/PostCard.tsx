@@ -24,14 +24,14 @@ function PostCard({ postInfo }: PostCardProps) {
         <Card className="transform group-hover:shadow-xl transition-shadow duration-500">
         <h2 className="text-xl font-semibold text-center mt-8">{postInfo.title}</h2>
           <CardContent className="p-8">
-            <div className="relative h-64 md:h-48 md:w-48">
+            <div className="relative h-64 md:h-48 md:w-full">
             
               <Image
                 src={postInfo.pictures[0]}
                 alt={postInfo.title}
                 fill
-                sizes="(max-width:768px) 100vw , (max-width:1200px) 50vw , 33vw"
-                className="w-full rounded object-cover h-full"
+                sizes="(max-width:768px) 100vw , (max-width:1200px) 100vw , 100vw"
+                className="rounded object-cover"
               />
             </div>
             <div className="mt-4 text-center">
