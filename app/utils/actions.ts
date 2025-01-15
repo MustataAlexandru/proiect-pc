@@ -3,6 +3,7 @@ import { currentUser, getAuth , auth } from "@clerk/nextjs/server";
 import { notFound, redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import db from './db';
+import { Post } from "@prisma/client";
 
 
 const renderError = (error: unknown): { message: string } => {

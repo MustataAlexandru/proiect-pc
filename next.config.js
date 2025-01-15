@@ -6,6 +6,7 @@ const nextConfig = {
       'img.clerk.com',
       'img.google.com',
       'images.pexels.com',
+      'a0.muscache.com',
       // Add other domains if needed
       // 'example.com',
       // 'images.unsplash.com'
