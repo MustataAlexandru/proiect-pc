@@ -13,11 +13,11 @@ import { Button } from "@/components/ui/button";
 import UserIcon from "./UserIcon";
 import { SignedOut, SignedIn, SignInButton, SignUpButton } from "@clerk/nextjs";
 import SignOutLink from "./SignOutLink";
-import { auth } from "@clerk/nextjs/server";
+
 
 function LinksDropdown() {
-  const user = auth();
-   console.log(user);
+  
+ 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
