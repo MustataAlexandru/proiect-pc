@@ -40,10 +40,10 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
       alert('Check-out date must be after check-in date');
       return;
     }
-    console.log('Booking details:', { 
-      checkIn, 
+    console.log('Booking details:', {
+      checkIn,
       checkOut,
-      nights 
+      nights
     });
   };
 
@@ -74,14 +74,14 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
             <span>{post.address}</span>
           </div>
         </div>
-        
+
         {/* Tags */}
         <div className="flex flex-wrap gap-2">
           {post.tags?.map((tag: string, index: number) => (
             <span
               key={index}
-              className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 
-                       rounded-full text-sm font-medium"
+              className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 
+                 rounded-full text-sm font-medium"
             >
               {tag}
             </span>
@@ -95,7 +95,7 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
           <div className="max-w-2xl mx-auto">
             <ImageCarousel images={post.pictures} title={post.title} />
           </div>
-          
+
           <div className="mt-8 bg-white dark:bg-gray-800/50 rounded-lg p-6 max-w-2xl mx-auto">
             <p className="text-gray-600 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
               {post.description}
@@ -147,12 +147,11 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
                 </div>
               )}
 
-              <Button 
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white h-12 text-lg"
-                onClick={handleBooking}
-                disabled={!isValidBooking()}
+              <Button
+                className="property-btn bg-red-500 dark:bg-400 hover:bg-red-600"
+
               >
-                Book Now
+                Book
               </Button>
 
               {/* Price calculation section */}
@@ -196,4 +195,3 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
     </main>
   );
 }
-  
