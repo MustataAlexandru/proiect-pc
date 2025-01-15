@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Modern Loft",
+    "description": "A beautiful space with modern amenities.",
+    "address": "123 City Street",
+    "price": 1200,
+    "tags": ["modern", "loft", "city"],
+    "pictures": ["https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg"],
+    "userId": 1
+  },
+  {
+    "title": "Beachfront Villa",
+    "description": "Enjoy the serene oceanfront views.",
+    "address": "456 Beach Blvd",
+    "price": 2500,
+    "tags": ["beachfront", "ocean", "luxury"],
+    "pictures": ["https://images.pexels.com/photos/169193/pexels-photo-169193.jpeg"],
+    "userId": 1
+  },
+  {
+    "title": "Mountain Cabin",
+    "description": "A peaceful retreat surrounded by nature.",
+    "address": "789 Mountain Road",
+    "price": 800,
+    "tags": ["nature", "cabin", "mountains"],
+    "pictures": ["https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"],
+    "userId": 1
+  },
+  {
+    "title": "Urban Studio",
+    "description": "A stylish and compact urban dwelling.",
+    "address": "101 Urban Lane",
+    "price": 1000,
+    "tags": ["urban", "studio", "compact"],
+    "pictures": ["https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg"],
+    "userId": 1
+  },
+  {
+    "title": "Lakehouse Retreat",
+    "description": "A quiet place to relax by the lake.",
+    "address": "202 Lakeview Drive",
+    "price": 1800,
+    "tags": ["lake", "retreat", "quiet"],
+    "pictures": ["https://images.pexels.com/photos/221457/pexels-photo-221457.jpeg"],
+    "userId": 1
+  },
+  {
+    "title": "Rustic Barnhouse",
+    "description": "A rustic house with modern charm.",
+    "address": "303 Country Road",
+    "price": 1500,
+    "tags": ["rustic", "barnhouse", "charm"],
+    "pictures": ["https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg"],
+    "userId": 1
+  },
+  {
+    "title": "Penthouse Suite",
+    "description": "Experience luxury in the heart of the city.",
+    "address": "404 Penthouse Ave",
+    "price": 3500,
+    "tags": ["luxury", "penthouse", "city"],
+    "pictures": ["https://images.pexels.com/photos/259950/pexels-photo-259950.jpeg"],
+    "userId": 1
+  },
+  {
+    "title": "Countryside Cottage",
+    "description": "A charming house in the countryside.",
+    "address": "505 Cottage Drive",
+    "price": 900,
+    "tags": ["countryside", "cottage", "charming"],
+    "pictures": ["https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg"],
+    "userId": 1
+  },
+  {
+    "title": "Luxury Villa",
+    "description": "A lavish home for a perfect getaway.",
+    "address": "606 Luxury Lane",
+    "price": 5000,
+    "tags": ["luxury", "villa", "getaway"],
+    "pictures": ["https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"],
+    "userId": 1
+  },
+  {
+    "title": "Cozy Bungalow",
+    "description": "A small but cozy home perfect for vacation.",
+    "address": "707 Bungalow Street",
+    "price": 1100,
+    "tags": ["cozy", "bungalow", "vacation"],
+    "pictures": ["https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg"],
+    "userId": 1
+  }
+]
