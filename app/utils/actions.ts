@@ -12,24 +12,18 @@ const renderError = (error: unknown): { message: string } => {
   };
 
 
+export const fetchAllPosts = async (
+    // {search = ""}: {search: string}
+) => {
 
-
-export const fetchAllPosts = async ({search = ''} : {search : string}) => {
-    
-    const allPosts = await db.post.findMany({
-        where: {
-            OR: [
-                {title: {contains: search , mode: 'insensitive'}},
-                {content: {contains: search , mode: 'insensitive'}},               
-            ]
-        },
-       
-        orderBy: {
-            createdAt: "desc"
-        }
-        
-    })
-    return allPosts;
-
-   
+    const posts = await db.post.findMany({
+        // where: {
+        //     OR: [
+        //         { title: { contains: search , mode: 'insensitive'} },
+        //     ]
+        // }
+    });
+    return posts;
 }
+   
+
