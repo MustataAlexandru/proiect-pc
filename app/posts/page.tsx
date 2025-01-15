@@ -3,7 +3,6 @@ import { fetchAllPosts } from "../utils/actions";
 import PostCard from "./PostCard";
 
 
-
 export default async function AllPosts() {
   const posts = await fetchAllPosts();
   if(posts.length === 0) return <p> No properties yet. </p>

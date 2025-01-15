@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import ShareButton from "@/app/single-post/ShareButton";
 import { fetchSinglePost } from "@/app/utils/actions";
