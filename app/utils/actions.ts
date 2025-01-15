@@ -24,6 +24,9 @@ export const fetchAllPosts = async (
 ) => {
 
     const posts = await db.post.findMany({
+        orderBy: {
+            id: 'asc',
+        }
         // where: {
         //     OR: [
         //         { title: { contains: search , mode: 'insensitive'} },
