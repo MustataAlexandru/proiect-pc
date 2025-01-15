@@ -29,7 +29,7 @@ export default async function SinglePostPage({ params }: { params: { id: number 
               </div>
             </div>
           </div>
-          <Button disabled>Book</Button>
+          <Button className="bg-red-500 dark:bg-400 hover:bg-red-600">Book</Button>
         </div>
       </section>
     );
