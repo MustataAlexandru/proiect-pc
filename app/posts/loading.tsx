@@ -1,9 +1,8 @@
-'use client'
 
-import LoadingTable from "../global/LoadingTable"
+import LoadingContainer from "../global/LoadingContainer"
 
 export default function loading() {
   return (
-   <LoadingTable></LoadingTable>
+   <LoadingContainer></LoadingContainer>
   )
 }

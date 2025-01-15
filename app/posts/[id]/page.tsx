@@ -60,9 +60,9 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
   }
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24">
       {/* Header */}
-      <div className="mb-6">
+      <div className="mb-6 ml-14">
         <h1 className="text-3xl font-bold dark:text-white mb-4">{post.title}</h1>
         <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
           <div className="flex items-center gap-2">
