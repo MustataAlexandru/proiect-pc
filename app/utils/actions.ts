@@ -20,18 +20,20 @@ export const getAuthUser = async () => {
 }
 
 export const fetchAllPosts = async (
-    // {search = ""}: {search: string}
+    {search = ""}: {search: string}
 ) => {
 
     const posts = await db.post.findMany({
+        where: {
+            OR:[
+                {title: {contains: search , mode:'insensitive'}},
+                
+            ]
+        },
         orderBy: {
             id: 'asc',
         }
-        // where: {
-        //     OR: [
-        //         { title: { contains: search , mode: 'insensitive'} },
-        //     ]
-        // }
+        
     });
     return posts;
 }

@@ -18,9 +18,9 @@ function NavSearch() {
     } else {
       params.delete('search');
     }
-    replace(`/posts?${params}`);
-  } , 500)
-  const searchingParams = searchParams.get('search');
+    replace(`/posts?${params.toString()}`);
+  } , 300)
+  // const searchingParams = searchParams.get('search');
   useEffect(() => {
     if(!searchParams.get('search')) {
       setSearch('');
@@ -30,7 +30,7 @@ function NavSearch() {
   return (
     <Input
       type="search"
-      placeholder="Cauta dupa oras sau judet"
+      placeholder="Search"
       className="max-w-md dark:bg-muted hidden lg:block md:block"
       onChange={(e) => {
         setSearch(e.target.value);
