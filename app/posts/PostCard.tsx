@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ShareButton from "../single-post/ShareButton";
 
 type PostCardProps = {
   postInfo: {
@@ -27,15 +28,19 @@ type PostCardProps = {
 function PostCard({ postInfo }: PostCardProps) {
   return (
     <article key={postInfo.id} className="group relative">
-      <Link href={`/posts/${postInfo.id}`}>
+      
+      
+      
+     
         <Card className="transform group-hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
           
             
           
           
           <CardContent className="p-6">
+          <Link href={`/posts/${postInfo.id}`}>
             <div className="relative h-72 md:h-56 w-full mb-4 overflow-hidden rounded-lg">
-              
+            
               <Image
                 src={postInfo.pictures[0]}
                 alt={postInfo.title}
@@ -43,8 +48,15 @@ function PostCard({ postInfo }: PostCardProps) {
                 sizes="(max-width:768px) 100vw, (max-width:1200px) 100vw, 100vw"
                 className="rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
               />
+              
             </div>
+            </Link>
+            <div className="flex justify-between">
             <h2 className="text-2xl tracking-tight mb-2">{postInfo.title}</h2>
+            
+            <ShareButton postId={postInfo.id} title={postInfo.title} />
+            
+            </div>
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground line-clamp-2">{postInfo.description}</p>
               
@@ -83,7 +95,7 @@ function PostCard({ postInfo }: PostCardProps) {
             </div>
           </CardContent>
         </Card>
-      </Link>
+      
     </article>
   );
 }
