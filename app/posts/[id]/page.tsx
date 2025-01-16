@@ -154,16 +154,16 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
                 <div className="border-t dark:border-gray-700 pt-4 mt-4">
                   <div className="flex justify-between text-sm mb-2">
                     <span className="dark:text-gray-300">
-                      {`lei${post.price} × ${nights} night${nights !== 1 ? 's' : ''}`}
+                      {`lei ${post.price} × ${nights} night${nights !== 1 ? 's' : ''}`}
                     </span>
                     <span className="dark:text-white">
-                      lei{post.price * nights}
+                      lei {post.price * nights}
                     </span>
                   </div>
                   <div className="flex justify-between font-semibold mt-4">
                     <span className="dark:text-gray-300">Total</span>
                     <span className="dark:text-white">
-                      lei{post.price * nights}
+                      lei {post.price * nights}
                     </span>
                   </div>
                 </div>
