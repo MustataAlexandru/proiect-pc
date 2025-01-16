@@ -40,11 +40,6 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
       alert('Check-out date must be after check-in date');
       return;
     }
-    console.log('Booking details:', {
-      checkIn,
-      checkOut,
-      nights
-    });
   };
 
   useEffect(() => {
