@@ -44,7 +44,7 @@ function PostCard({ postInfo }: PostCardProps) {
                 className="rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-            <h2 className="text-2xl font-bold text-center tracking-tight">{postInfo.title}</h2>
+            <h2 className="text-2xl tracking-tight mb-2">{postInfo.title}</h2>
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground line-clamp-2">{postInfo.description}</p>
               
