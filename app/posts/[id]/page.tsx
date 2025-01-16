@@ -144,7 +144,7 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
               )}
 
               <Button
-                className="property-btn bg-red-500 dark:bg-400 hover:bg-red-600"
+                className="property-btn bg-red-500 dark:bg-400 hover:bg-red-600 dark:text-white"
 
               >
                 Book

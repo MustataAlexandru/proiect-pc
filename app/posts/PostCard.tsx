@@ -87,7 +87,7 @@ function PostCard({ postInfo }: PostCardProps) {
                 {postInfo.price.toLocaleString()} lei
               </p>
               <Button 
-                className="property-btn bg-red-500 dark:bg-400 hover:bg-red-600" 
+                className="property-btn bg-red-500 dark:bg-400 hover:bg-red-600 dark:text-white" 
                 
               >
                 Book
