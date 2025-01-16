@@ -29,9 +29,9 @@ function PostCard({ postInfo }: PostCardProps) {
     <article key={postInfo.id} className="group relative">
       <Link href={`/posts/${postInfo.id}`}>
         <Card className="transform group-hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-          <CardHeader className="pb-0">
-            <h2 className="text-2xl font-bold text-center tracking-tight">{postInfo.title}</h2>
-          </CardHeader>
+          
+            
+          
           
           <CardContent className="p-6">
             <div className="relative h-72 md:h-56 w-full mb-4 overflow-hidden rounded-lg">
@@ -44,7 +44,7 @@ function PostCard({ postInfo }: PostCardProps) {
                 className="rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-
+            <h2 className="text-2xl font-bold text-center tracking-tight">{postInfo.title}</h2>
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground line-clamp-2">{postInfo.description}</p>
               

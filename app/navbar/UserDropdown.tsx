@@ -13,11 +13,13 @@ import { Button } from "@/components/ui/button";
 import UserIcon from "./UserIcon";
 import { SignedOut, SignedIn, SignInButton, SignUpButton } from "@clerk/nextjs";
 import SignOutLink from "./SignOutLink";
+import { currentUser } from "@clerk/nextjs/server";
 
 
-function LinksDropdown() {
+async function LinksDropdown() {
   
- 
+  const user = await currentUser();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -46,8 +48,9 @@ function LinksDropdown() {
         </SignedOut>
 
         <SignedIn>
+        <p>{user?.firstName}</p>
           <DropdownMenuSeparator />
-          <Link href='/profile'> Profile </Link>
+          <Link href='/profile'> Profile </Link>          
           <DropdownMenuItem>
             <SignOutLink />
           </DropdownMenuItem>
