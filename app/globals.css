@@ -572,3 +572,11 @@
   width: 30%;
   margin: 0 auto;
 }
+
+@media (max-width: 640px) {
+  .search-small {
+    position : fixed;
+    top: 10%;
+    right: 3%;
+  }
+}
