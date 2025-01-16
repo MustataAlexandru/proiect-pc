@@ -32,7 +32,6 @@ const ProfilePage = async () => {
   };
 
   const authUser = getAuthUser();
-  console.log(authUser);
   if (!authUser) redirect("/");
   return (
     <div className="max-w-4xl mx-auto p-6 mt-20 space-y-8">
