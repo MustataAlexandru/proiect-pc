@@ -57,7 +57,7 @@ export default function ImageCarousel({ images, title }: ImageCarouselProps) {
       </div>
 
       {/* Thumbnails */}
-      <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+      {/* <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
         {images.map((image, index) => (
           <button
             key={index}
@@ -73,7 +73,7 @@ export default function ImageCarousel({ images, title }: ImageCarouselProps) {
             />
           </button>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 } 

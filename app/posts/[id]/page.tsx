@@ -55,10 +55,18 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
   }
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-36">
       {/* Header */}
-      <div className="mb-6 ml-14">
-        <h1 className="text-3xl font-bold dark:text-white mb-4">{post.title}</h1>
+     
+
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Left Column - Image Carousel and Description */}
+        <div className="lg:w-2/3">
+          <div className="max-w-2xl mx-auto">
+            <ImageCarousel images={post.pictures} title={post.title} />
+          </div>
+          <div className="mb-6 ml-14">
+        <h1 className="text-xl dark:text-white mb-4 mt-4">{post.title}</h1>
         <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
           <div className="flex items-center gap-2">
             <User className="w-4 h-4" />
@@ -83,18 +91,11 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
           ))}
         </div>
       </div>
-
-      <div className="flex flex-col lg:flex-row gap-8">
-        {/* Left Column - Image Carousel and Description */}
-        <div className="lg:w-2/3">
-          <div className="max-w-2xl mx-auto">
-            <ImageCarousel images={post.pictures} title={post.title} />
-          </div>
-
           <div className="mt-8 bg-white dark:bg-gray-800/50 rounded-lg p-6 max-w-2xl mx-auto">
             <p className="text-gray-600 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
               {post.description}
             </p>
+            
           </div>
         </div>
 
