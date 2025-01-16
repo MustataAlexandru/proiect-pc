@@ -24,7 +24,7 @@ export default function ShareButton({postId , title }: {postId: number , title: 
 
   return <Popover >
     <PopoverTrigger> 
-        <Button variant='outline' size ='icon' className="p-2">
+        <Button variant='outline' size ='icon' className="p-2 text-red-500 hover:text-red-600 dark:text-red-400">
             <LuShare2 />
         </Button>
     </PopoverTrigger>
