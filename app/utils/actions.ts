@@ -7,6 +7,7 @@ import { Post, User } from "@prisma/client";
 import { writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
 import crypto from 'crypto';
+import { ValidationError } from './errors';
 
 const renderError = (error: unknown): { message: string } => {
     return {
@@ -47,11 +48,23 @@ export const createPost = async (
         title: string;
         description: string;
         address: string;
-        price: number;
+        price: any;
         tags: string[];
         images: File[];
     }
 ) => {
+    // Validate price before proceeding
+    const priceNumber = Math.floor(Number(postData.price));
+    if (isNaN(priceNumber)) {
+        throw new ValidationError('Price must be a valid number');
+    }
+    if (priceNumber <= 0) {
+        throw new ValidationError('Price must be greater than 0 lei');
+    }
+    if (priceNumber !== Number(postData.price)) {
+        throw new ValidationError('Price must be a whole number (no decimals)');
+    }
+
     const imageUrls: string[] = [];
 
     // Ensure images directory exists
@@ -96,19 +109,23 @@ export const createPost = async (
     }
 
     // Create post in database
-    const post = await db.post.create({
-        data: {
-            userId,
-            title: postData.title,
-            description: postData.description,
-            address: postData.address,
-            price: postData.price,
-            tags: postData.tags,
-            pictures: imageUrls,
-        },
-    });
-
-    return post;
+    try {
+        const post = await db.post.create({
+            data: {
+                userId,
+                title: postData.title,
+                description: postData.description,
+                address: postData.address,
+                price: priceNumber,
+                tags: postData.tags,
+                pictures: imageUrls,
+            },
+        });
+        return post;
+    } catch (error) {
+        console.error('Database error:', error);
+        throw new Error('Failed to create post. Please check all fields and try again.');
+    }
 }
 
 export const fetchAllPosts = async ({search = ""}: {search: string}) => {

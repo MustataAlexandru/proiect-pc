@@ -102,15 +102,31 @@ const NewPostPage = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Price
+            Price (lei)
           </label>
-          <input
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-            required
-          />
+          <div className="relative">
+            <input
+              type="number"
+              min="1"
+              step="1"
+              value={price}
+              onChange={(e) => {
+                // Only allow integer values
+                const value = e.target.value;
+                if (value.includes('.') || value.includes(',')) {
+                  setPrice(Math.floor(Number(value)).toString());
+                } else {
+                  setPrice(value);
+                }
+              }}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white pr-12"
+              placeholder="Enter price"
+              required
+            />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+              lei
+            </span>
+          </div>
         </div>
 
         <div>
