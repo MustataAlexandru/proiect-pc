@@ -47,10 +47,10 @@ export async function POST(request: NextRequest) {
       
       // Generate unique filename
       const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1E9)}`;
-      const filename = `${uniqueSuffix}-${image.name}`;
+      const filename = `${uniqueSuffix}-${image.name.replace(/[^a-zA-Z0-9.]/g, '')}`;
       const path = join(process.cwd(), 'public', 'images', filename);
       
-      await writeFile(path, buffer);
+      await writeFile(path, new Uint8Array(buffer));
       imageUrls.push(`/images/${filename}`);
     }
 
