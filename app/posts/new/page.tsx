@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 const NewPostPage = () => {
   const router = useRouter();
@@ -13,6 +14,8 @@ const NewPostPage = () => {
   const [tags, setTags] = useState('');
   const [selectedImages, setSelectedImages] = useState<FileList | null>(null);
   const [previewUrls, setPreviewUrls] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -23,8 +26,39 @@ const NewPostPage = () => {
     }
   };
 
+  const validateForm = () => {
+    if (!title.trim()) {
+      setError('Title is required');
+      return false;
+    }
+    if (!description.trim()) {
+      setError('Description is required');
+      return false;
+    }
+    if (!address.trim()) {
+      setError('Address is required');
+      return false;
+    }
+    if (!price || Number(price) <= 0) {
+      setError('Price must be greater than 0');
+      return false;
+    }
+    if (!Number.isInteger(Number(price))) {
+      setError('Price must be a whole number');
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
 
     const formData = new FormData();
     formData.append('title', title);
@@ -45,14 +79,19 @@ const NewPostPage = () => {
         body: formData,
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         router.push('/profile');
         router.refresh();
       } else {
-        console.error('Failed to create post');
+        setError(data.error || 'Failed to create post');
       }
     } catch (error) {
+      setError('An error occurred while creating the post');
       console.error('Error creating post:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -60,6 +99,12 @@ const NewPostPage = () => {
     <div className="max-w-4xl mx-auto p-6 mt-20">
       <h1 className="text-2xl font-bold mb-6 dark:text-white">Create New Post</h1>
       
+      {error && (
+        <div className="mb-4 p-4 text-red-700 bg-red-100 dark:bg-red-900/30 dark:text-red-300 rounded-md">
+          {error}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -172,9 +217,17 @@ const NewPostPage = () => {
 
         <button
           type="submit"
-          className="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors"
+          disabled={isSubmitting}
+          className="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
         >
-          Create Post
+          {isSubmitting ? (
+            <>
+              <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+              Creating Post...
+            </>
+          ) : (
+            'Create Post'
+          )}
         </button>
       </form>
     </div>
