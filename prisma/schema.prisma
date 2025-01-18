@@ -1,16 +1,16 @@
 
-datasource db {
-  provider    = "postgresql"
-  url         = env("DATABASE_URL")
-  directUrl   = env("DIRECT_URL")
-}
+// datasource db {
+//   provider    = "postgresql"
+//   url         = env("DATABASE_URL")
+//   directUrl   = env("DIRECT_URL")
+// }
 
 // Local database for testing purposes
 
-// datasource db {
-//   provider = "postgresql"
-//   url      = "postgresql://robert:asdasd@localhost:5432/db"
-// }
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://robert:asdasd@localhost:5432/db"
+}
 
 generator client {
   provider = "prisma-client-js"
@@ -22,7 +22,7 @@ model User {
   email             String    @unique
   password          String
   date              DateTime  @default(now())
-  // posts             Post[]
+  posts             Post[]
   bookings          Booking[]
   reviews           Review[]
   sentMessages      Message[] @relation("SentMessages")
@@ -39,9 +39,9 @@ model Post {
   price       Float
   tags        String[]
   pictures    String[]
-  // user        User      @relation(fields: [userId], references: [id])
-  // bookings    Booking[]
-  // reviews     Review[]
+  user        User      @relation(fields: [userId], references: [id])
+  bookings    Booking[]
+  reviews     Review[]
 }
 
 model Booking {
@@ -53,7 +53,7 @@ model Booking {
   endDate    DateTime
   date       DateTime @default(now())
   user       User     @relation(fields: [userId], references: [id])
-  // post       Post     @relation(fields: [postId], references: [id])
+  post       Post     @relation(fields: [postId], references: [id])
 }
 
 model Review {
@@ -64,7 +64,7 @@ model Review {
   comment    String
   date       DateTime @default(now())
   user       User     @relation(fields: [userId], references: [id])
-  // post       Post     @relation(fields: [postId], references: [id])
+  post       Post     @relation(fields: [postId], references: [id])
 }
 
 model Message {
