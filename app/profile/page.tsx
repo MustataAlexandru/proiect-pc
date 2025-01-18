@@ -39,7 +39,14 @@ const ProfilePage = async () => {
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
         <div className="flex items-center gap-6">
           <div className="relative w-32 h-32 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-            <Image src={(await authUser).imageUrl} fill alt='profile image' />
+            <Image 
+              src={(await authUser).imageUrl} 
+              fill 
+              priority
+              sizes="(max-width: 768px) 128px, 128px"
+              alt='profile image' 
+              className="object-cover"
+            />
           </div>
           <div>
             <h1 className="text-2xl font-bold dark:text-white">

@@ -28,7 +28,7 @@ export default function ImageCarousel({ images, title }: ImageCarouselProps) {
           src={images[currentIndex]}
           alt={`${title} - Image ${currentIndex + 1}`}
           fill
-          priority
+          loading="lazy"
           className="object-cover"
         />
         

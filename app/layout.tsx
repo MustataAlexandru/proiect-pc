@@ -10,7 +10,6 @@ import Footer from "./global/Footer";
 const inter = Inter({ 
   subsets: ["latin"],
   display: 'swap',
-  preload: true,
 });
 
 export const metadata: Metadata = {
