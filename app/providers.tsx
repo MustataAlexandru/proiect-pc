@@ -1,9 +1,20 @@
 "use client";
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "./theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 
 function Providers({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <>
       <Toaster />
@@ -12,6 +23,7 @@ function Providers({ children }: { children: React.ReactNode }) {
         defaultTheme="system"
         enableSystem
         disableTransitionOnChange
+        suppressHydrationWarning
       >
         {children}
       </ThemeProvider>
