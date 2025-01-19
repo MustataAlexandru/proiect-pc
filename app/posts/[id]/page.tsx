@@ -13,7 +13,6 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
   const [nights, setNights] = useState(1);
   const [post, setPost] = useState<any>(null);
 
-  // Update nights when dates change
   useEffect(() => {
     if (checkIn && checkOut) {
       const start = new Date(checkIn);
@@ -56,11 +55,7 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-36">
-      {/* Header */}
-     
-
       <div className="flex flex-col lg:flex-row gap-8">
-        {/* Left Column - Image Carousel and Description */}
         <div className="lg:w-2/3">
           <div className="max-w-2xl mx-auto">
             <ImageCarousel images={post.pictures} title={post.title} />
@@ -78,7 +73,6 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
           </div>
         </div>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2">
           {post.tags?.map((tag: string, index: number) => (
             <span
@@ -99,16 +93,13 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
           </div>
         </div>
 
-        {/* Right Column - Booking Card */}
         <div className="lg:w-1/3">
           <div className="bg-white dark:bg-gray-800/50 rounded-lg p-6 sticky top-24">
-            {/* Price */}
             <div className="flex items-baseline gap-1 mb-6">
               <span className="text-3xl font-bold dark:text-white">{post.price} lei</span>
               <span className="text-gray-500 dark:text-gray-400">/night</span>
             </div>
 
-            {/* Booking Form */}
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-2">
                 <div className="border dark:border-gray-700 rounded-lg p-3">
@@ -133,7 +124,6 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
                 </div>
               </div>
 
-              {/* Nights display */}
               {checkIn && checkOut && (
                 <div className="border dark:border-gray-700 rounded-lg p-3">
                   <div className="text-sm text-gray-500 dark:text-gray-400">Nights</div>
@@ -150,7 +140,6 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
                 Book
               </Button>
 
-              {/* Price calculation section */}
               {checkIn && checkOut && (
                 <div className="border-t dark:border-gray-700 pt-4 mt-4">
                   <div className="flex justify-between text-sm mb-2">
@@ -172,7 +161,6 @@ export default function SinglePostPage({ params }: { params: { id: number } }) {
 
             </div>
 
-            {/* Details */}
             <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
               <dl className="space-y-4">
                 <div>
