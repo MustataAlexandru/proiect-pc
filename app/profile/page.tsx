@@ -9,15 +9,13 @@ const ProfilePage = async () => {
   const dbUser = await getOrCreateDbUser(authUser);
   const latestPosts = await fetchUserLatestPosts(dbUser.id);
 
-  // Extract only the necessary data from the Clerk user object
   const serializedUser = {
-    firstName: authUser.firstName,
-    lastName: authUser.lastName,
-    username: authUser.username,
-    imageUrl: authUser.imageUrl,
+    firstName: authUser.firstName || "",
+    lastName: authUser.lastName || "",
+    username: authUser.username || "",
+    imageUrl: authUser.imageUrl || "",
   };
 
-  // Extract only the necessary data from the database user object
   const serializedDbUser = {
     id: dbUser.id,
     date: dbUser.date,

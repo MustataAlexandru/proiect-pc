@@ -53,7 +53,6 @@ export const createPost = async (
         images: File[];
     }
 ) => {
-    // Validate price before proceeding
     const priceNumber = Math.floor(Number(postData.price));
     if (isNaN(priceNumber)) {
         throw new ValidationError('Price must be a valid number');
@@ -67,7 +66,6 @@ export const createPost = async (
 
     const imageUrls: string[] = [];
 
-    // Ensure images directory exists
     const imagesDir = join(process.cwd(), 'public', 'images');
     try {
         await mkdir(imagesDir, { recursive: true });
@@ -77,29 +75,22 @@ export const createPost = async (
         }
     }
 
-    // Save images to public directory
     for (const image of postData.images) {
-        // Convert File to ArrayBuffer
         const arrayBuffer = await image.arrayBuffer();
         
-        // Create a hash of the file content using the ArrayBuffer directly
         const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer);
         const hashArray = Array.from(new Uint8Array(hashBuffer));
         const hash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 8);
 
-        // Get file extension
         const ext = image.name.split('.').pop()?.toLowerCase() || '';
         
-        // Generate unique filename using hash
         const filename = `${hash}-${Date.now()}.${ext}`;
         const path = join(imagesDir, filename);
         
-        // Check if file already exists
         try {
             await writeFile(path, new Uint8Array(arrayBuffer), { flag: 'wx' });
             imageUrls.push(`/images/${filename}`);
         } catch (error: any) {
-            // If file exists, just use the existing path
             if (error.code === 'EEXIST') {
                 imageUrls.push(`/images/${filename}`);
                 continue;
@@ -108,7 +99,6 @@ export const createPost = async (
         }
     }
 
-    // Create post in database
     try {
         const post = await db.post.create({
             data: {
@@ -161,7 +151,6 @@ export const fetchUserLatestPosts = async (userId: number) => {
         take: 3
     });
 
-    // Calculate average rating for each post
     return posts.map(post => ({
         ...post,
         averageRating: post.reviews.length > 0 
@@ -187,7 +176,6 @@ export const fetchAllUserPosts = async (userId: number) => {
         }
     });
 
-    // Calculate average rating for each post
     return posts.map(post => ({
         ...post,
         averageRating: post.reviews.length > 0 
