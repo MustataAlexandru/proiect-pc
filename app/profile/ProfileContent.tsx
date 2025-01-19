@@ -44,7 +44,6 @@ const ProfileContent = ({ initialUser, initialDbUser, initialPosts }: ProfileCon
 
   return (
     <div className="max-w-4xl mx-auto p-6 mt-20 space-y-8">
-      {/* Profile Header */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
@@ -91,7 +90,6 @@ const ProfileContent = ({ initialUser, initialDbUser, initialPosts }: ProfileCon
         </div>
       </div>
 
-      {/* Listings Section */}
       <div>
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-semibold">{initialUser.firstName}'s listings</h2>
