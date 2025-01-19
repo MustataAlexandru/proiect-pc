@@ -13,7 +13,7 @@ const ProfilePage = async () => {
     firstName: authUser.firstName || "",
     lastName: authUser.lastName || "",
     username: authUser.username || "",
-    imageUrl: authUser.imageUrl || "",
+    imageUrl: authUser.imageUrl || "", // Included for thte future when we update the db schema to handle profile images as well
   };
 
   const serializedDbUser = {
