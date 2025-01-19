@@ -142,6 +142,33 @@ export const fetchAllPosts = async ({search = ""}: {search: string}) => {
     });
     return posts;
 }
+
+export const fetchUserLatestPosts = async (userId: number) => {
+    const posts = await db.post.findMany({
+        where: {
+            userId: userId
+        },
+        include: {
+            reviews: {
+                select: {
+                    rating: true
+                }
+            }
+        },
+        orderBy: {
+            date: 'desc'
+        },
+        take: 3
+    });
+
+    // Calculate average rating for each post
+    return posts.map(post => ({
+        ...post,
+        averageRating: post.reviews.length > 0 
+            ? (post.reviews.reduce((acc, review) => acc + review.rating, 0) / post.reviews.length).toFixed(2)
+            : null
+    }));
+}
    
 export const fetchSinglePost = async (postId: number) => {
     const id = Number(postId)
