@@ -7,7 +7,10 @@ import { ClerkProvider } from '@clerk/nextjs';
 import Providers from './providers';
 import Footer from "./global/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Licenta",
@@ -21,14 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
+      <html lang="en" suppressHydrationWarning>
+        <body className={inter.className} suppressHydrationWarning>
           <Providers>
             <Navbar />
             <Container>{children}</Container>
             <Footer />
           </Providers>
-          
         </body>
       </html>
     </ClerkProvider>
