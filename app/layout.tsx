@@ -3,11 +3,16 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Container from "./global/Container";
 import Navbar from "./navbar/Navbar";
-import { ClerkProvider } from '@clerk/nextjs';
+import AuthProviders from './auth-providers';
 import Providers from './providers';
 import Footer from "./global/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'sans-serif'],
+});
 
 export const metadata: Metadata = {
   title: "Licenta",
@@ -20,17 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
+    <html lang="en">
+      <body className={inter.className}>
+        <AuthProviders>
           <Providers>
             <Navbar />
             <Container>{children}</Container>
             <Footer />
           </Providers>
-          
-        </body>
-      </html>
-    </ClerkProvider>
+        </AuthProviders>
+      </body>
+    </html>
   );
 }

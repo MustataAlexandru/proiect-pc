@@ -19,19 +19,6 @@ const nextConfig = {
       },
     ],
   },
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'Link',
-            value: '</next/static/media/your-font-file.woff2>; rel=preload; as=font; crossorigin',
-          },
-        ],
-      },
-    ]
-  },
 }
 
 module.exports = nextConfig

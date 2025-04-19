@@ -6,7 +6,7 @@ import { LuShare2 } from "react-icons/lu";
 
 import {
     TwitterShareButton,
-   
+
     FacebookShareButton,
     FacebookIcon,
     TwitterIcon,
@@ -23,23 +23,29 @@ export default function ShareButton({postId , title }: {postId: number , title: 
     const shareLink = `${url}/property/${postId}`;
 
   return <Popover >
-    <PopoverTrigger> 
+    <PopoverTrigger asChild>
         <Button variant='outline' size ='icon' className="p-2 text-red-500 hover:text-red-600 dark:text-red-400">
             <LuShare2 />
         </Button>
     </PopoverTrigger>
     <PopoverContent side='top' align='end' sideOffset={10} className="flex items-center gap-x-2 justify-center w-full">
-        
+
         <WhatsappShareButton url={shareLink} title={title}>
-            <WhatsappIcon size={32} round />
+            <span className="inline-block">
+                <WhatsappIcon size={32} round />
+            </span>
         </WhatsappShareButton>
         <TelegramShareButton url={shareLink} title={title}>
-            <TelegramIcon size={32} round />
+            <span className="inline-block">
+                <TelegramIcon size={32} round />
+            </span>
         </TelegramShareButton>
         <FacebookShareButton url={shareLink} title={title}>
-            <FacebookIcon size={32} round />
+            <span className="inline-block">
+                <FacebookIcon size={32} round />
+            </span>
         </FacebookShareButton>
-        
+
     </PopoverContent>
   </Popover>;
 }

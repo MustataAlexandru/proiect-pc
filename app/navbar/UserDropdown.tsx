@@ -17,7 +17,7 @@ import { currentUser } from "@clerk/nextjs/server";
 
 
 async function LinksDropdown() {
-  
+
   const user = await currentUser();
 
   return (
@@ -36,13 +36,13 @@ async function LinksDropdown() {
         <SignedOut>
           <DropdownMenuItem>
             <SignInButton mode="modal">
-              <button className="w-full text-left">Login</button>
+              <span className="w-full text-left block">Login</span>
             </SignInButton>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <SignUpButton mode="modal">
-              <button className="w-full text-left">Sign Up</button>
+              <span className="w-full text-left block">Sign Up</span>
             </SignUpButton>
           </DropdownMenuItem>
         </SignedOut>
@@ -50,7 +50,7 @@ async function LinksDropdown() {
         <SignedIn>
         <p>{user?.firstName}</p>
           <DropdownMenuSeparator />
-          <Link href='/profile'> Profile </Link>          
+          <Link href='/profile'> Profile </Link>
           <DropdownMenuItem>
             <SignOutLink />
           </DropdownMenuItem>
